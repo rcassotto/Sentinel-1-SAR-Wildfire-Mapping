@@ -1,4 +1,0 @@
-{"coh_file_loc": '/data/Work/rcassotto/NASA_FIREDpy/new_ROIs_ryan/sites/proc_sar_data/NIFC_2021_CA_Monument/DESCENDING/coherence',
-"out_dir": '/data/Work/rcassotto/NASA_FIREDpy/new_ROIs_ryan/sites/proc_sar_data/NIFC_2021_CA_Monument/DESCENDING/coh_change',
-"tif_suffix": 'coherence_VV.tif',
-"ref_image": ''}
