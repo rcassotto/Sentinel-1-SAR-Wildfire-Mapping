@@ -1,0 +1,7 @@
+{"rfdi_file_loc": '/Users/ryan_cu/Documents_NoOneDrive/1_Research/Projects/NASA_FIREDpy/sample_data/TX_WindyDeuce/ASCENDING/rfdi_update',
+"out_dir": '/Users/ryan_cu/Documents_NoOneDrive/1_Research/Projects/NASA_FIREDpy/sample_data/TX_WindyDeuce/ASCENDING/deltaRFDI_update',
+"rfdi_suffix": 'rfdi.tif',
+"coh_change_file_loc": '/Users/ryan_cu/Documents_NoOneDrive/1_Research/Projects/NASA_FIREDpy/sample_data/TX_WindyDeuce/ASCENDING/coh_change_update_2',
+"coh_change_suffix": 'cohChange.tif',
+"rfdi_ref_image": '',
+"use_norm_images": 'false'}
