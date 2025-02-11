@@ -1,0 +1,7 @@
+{"sigma0_file_loc": '/data/Work/rcassotto/NASA_FIREDpy/GRD_data/GRD_files/fid_11862_Temperate/ASCENDING/RTC_corrected_scenes_RTC_outputs/',
+"out_dir": '/data/Work/rcassotto/NASA_FIREDpy/GRD_data/GRD_files/fid_11862_Temperate/ASCENDING/RTC_corrected_scenes_RTC_outputs/cropped2ROI/',
+"input_image_suffix": 'Sigma0_VV.tif',
+"fire_roi_gis_file": 'fid_11862.json',
+"fire_roi_gis_path": '/data/Work/rcassotto/NASA_FIREDpy/parsed_events',
+"fire_perimeter_buffer_prct": '50'}
+

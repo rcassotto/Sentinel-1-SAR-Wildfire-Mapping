@@ -1,0 +1,8 @@
+{"coh_file_loc": '/data/Work/rcassotto/NASA_FIREDpy/new_ROIs_ryan/sites/NIFC_2021_CA_Monument/SLC/fid_178/DESCENDING/Processed_Data/coherence_tif_copies',
+"out_dir": '/data/Work/rcassotto/NASA_FIREDpy/new_ROIs_ryan/sites/NIFC_2021_CA_Monument/SLC/fid_178/DESCENDING/Processed_Data/coherence_tif_copies/cropped2ROI',
+"input_image_suffix": 'coherence_VV.tif',
+"fire_roi_gis_file": 'NIFC_2021_CA_Monument.gpkg',
+"fire_roi_gis_path": '/data/Work/rcassotto/NASA_FIREDpy/new_ROIs_ryan/new_NIFC_fires',
+"fire_perimeter_buffer_prct": '50'}
+
+
