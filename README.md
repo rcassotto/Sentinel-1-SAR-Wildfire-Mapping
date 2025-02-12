@@ -66,6 +66,9 @@ To execute script:
 ![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
 
 
+
+
+
 ### Step 2 - Pre-Process SLC data to Coherence Images
 Once the data download is complete, continue to step 2: pre-process SLC to coherence images. This step should be completed before or in parallel with pre-process GRD to Sigma0 images (step 4). It must be completed before step 5 as the workflow relies on coherence change images (step 3) to generate polarimetric differenced images. 
 
@@ -88,9 +91,18 @@ Orbit Files: are critical to processing Sentinel-1 SLC or GRD data. As written, 
 Once correct pathways are updated in your python script, the input file is amended for your area of interest, and orbit files are downloaded, execute the python script with the following command:
   **_python3 Process_SLC2Coh_wSNAP_v1.0.py FIREDpy_process_coh_input_asc.txt_**
 
-  
+The coherence files will be located in a _Processed_data_ directory, with each image further located in subfolders organized by the date and times of the primary and secondary image pairs. A shell script (_move_tif_files2_coherence_tif_copies_dir.sh_) is provided to move these files into a new centralized directory called _coherence_tif_copies_ with the _Processed_data_ directory (e.g. _/Processed_data/coherence_tif_copies/_); it also removes the extraneous data generated during the pre-processing. 
+
+The script will need to be executed from within the _Processed_data_ directory. 
 
 ![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
+
+
+
+
+
+
+
 
 
 ### Step 3 - Generate Coherence Change Images
