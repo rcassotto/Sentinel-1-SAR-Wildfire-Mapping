@@ -1,0 +1,5 @@
+{"gpkg_path": '/data/Work/rcassotto/NASA_FIREDpy/ROIs_Behzad/geopackages',
+"gpkg_file": 'fid_9844.gpkg',
+"SAR_file_type": 'SLC',
+"SAR_download_path":'/data/Work/rcassotto/NASA_FIREDpy/testGitHub',
+"OrbitalBuffer_days": '12'}
