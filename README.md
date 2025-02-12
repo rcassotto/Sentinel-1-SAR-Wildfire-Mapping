@@ -52,11 +52,11 @@ For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_W
   - **SAR_file_type**: 'SLC' for coherence products, 'GRD' for polarimeteric Sigma0 files.
   - **SAR_download_path**: full path where the API should download SAR files to.
   - **OrbitalBuffer_days**: Number of days to add before the start date and after the end date for the desired time period of interest.
-<br><br>
+<br>
 
 ![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
 
-<br><br>
+<br>
 
   If no geopackge is available for your ROI, you can specify a wkt polygon and start/end dates in the API. An example for such case is provided here >> https://github.com/rcassotto/Sentinel-1-GRD-to-RTC-Pre-Processing/tree/main/ASF_API.
 
@@ -68,10 +68,8 @@ This step requires an EarthData account and credentials. Be sure to add your Ear
 To execute script:
 1) Activate your dedicated python environment, if not already in the environment.
 2) initiate script: **_python3 FIREDpy_query_asf_v2.0.py NIFC_2024_TX_Windy_Deuce.gkpg_**
-     
-
-<br><br><br>
-
+   
+<br><br>
 ### Step 2 - Pre-Process SLC data to Coherence Images
 <br>
 Once the data download is complete, continue to step 2: pre-process SLC to coherence images. This step should be completed before or in parallel with pre-process GRD to Sigma0 images (step 4). It must be completed before step 5 as the workflow relies on coherence change images (step 3) to generate polarimetric differenced images. 
@@ -105,12 +103,6 @@ The coherence files will be located in a _Processed_data_ directory, with each i
 The script will need to be executed from within the _Processed_data_ directory. 
 
 <br><br><br>
-
-
-
-
-
-
 
 
 ### Step 3 - Generate Coherence Change Images
