@@ -25,7 +25,7 @@ Two additional dependecies are required to run the workflow; both are open sourc
 - The SeNtinel Application Platform (SNAP).
 
   #### _GDAL_
-  The Geospatial Data Abstraction Library is called within the python framework. **If you installed gdal with python in the   evironment above, you can copy and paste the full path to the gdal_translate binary where indicated in the python scripts   below. You do not have to install gdal seperately.** 
+  The Geospatial Data Abstraction Library is called within the python framework. **_If you installed gdal with python in the   evironment above, you can copy and paste the full path to the gdal_translate binary where indicated in the python scripts   below. You do not have to install gdal seperately_.** 
 
   #### _SNAP_
   ESA's SNAP program is required to pre-process the SLC and GRD data to coherence and sigma0 images, respectively. Follow     the instructions to install SNAP (https://step.esa.int/main/download/snap-download/), note the full path of the gpt tool,   and enter it in the necessary scripts identified below.
