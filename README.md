@@ -19,16 +19,7 @@ Once a dedicated environment is created and activated, install the necessary pyt
 
 
 ## Python Dependencies
-asf_search <br> fiona <br> gdal <br>geopandas
-json
-matplotlib
-numpy
-pandas
-rasterio
-scipy
-shapely
-simplekml
-skimage
+asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br> pandas<br> rasterio<br> scipy<br> shapely<br> simplekml<br> skimage<br>
 
 
 ![FIREDpy-SAR Detection_zoom](https://github.com/user-attachments/assets/24a38cf5-5bbc-4071-9e8e-582626ec9bf0)
