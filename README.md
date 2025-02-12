@@ -12,9 +12,13 @@ The workflow contains 6 major steps with some requiring several smaller steps. F
 
 
 ## Initial Setup 
+Download or clone the repository to your local machine. 
+
 It is highly recommended to create a dedicated python environment to operate in. Many python package tools are available; I use anaconda (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
-Once a dedicated environment is created and activated, install the necessary python dependencies (see below). 
+Once a dedicated environment is created and activated, install the necessary python dependencies (see below).
+
+Once the python environment is configured, install additional non-python dependencies before running the workflow. 
 
 ### Python Dependencies
 asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br> pandas<br> rasterio<br> scipy<br> shapely<br> simplekml<br> skimage<br>
@@ -23,12 +27,13 @@ asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br
 Two additional dependecies are required to run the workflow; both are open sourced. 
 - gdal.
 - The SeNtinel Application Platform (SNAP).
+- EarthData account (it's free!)
 
   #### _GDAL_
   The Geospatial Data Abstraction Library is called within the python framework. **_If you installed gdal with python in the   evironment above, you can copy and paste the full path to the gdal_translate binary where indicated in the python scripts   below. You do not have to install gdal seperately_.** 
 
   #### _SNAP_
-  ESA's SNAP program is required to pre-process the SLC and GRD data to coherence and sigma0 images, respectively. Follow     the instructions to install SNAP (https://step.esa.int/main/download/snap-download/), note the full path of the gpt tool,   and enter it in the necessary scripts identified below.
+  ESA's SNAP program is required to pre-process the SLC and GRD data to coherence and sigma0 images, respectively. Follow the instructions on ESA's website to install SNAP (https://step.esa.int/main/download/snap-download/). Once installed, note the full path of the gpt tool. You will need to enter it in the necessary scripts identified below.
   
   Note: A SNAP update may be necessary, even after a fresh install. 
     E.g. /local_path_to_snap/snap/bin/snap --nosplash --nogui --modules --update-all
@@ -36,13 +41,35 @@ Two additional dependecies are required to run the workflow; both are open sourc
 
 ## Detailed workflow
 
+As mentioned, a png file of the full workflow is provide in the repository above. The following provides the individual steps of the workflow. 
+
 ### Step 1 - Download SAR data from ASF
+For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_Windy_Deuce.gkpg). The python script _FIREDpy_query_asf_v2.0.py_ will read an input file (_FIREDpy_query_ASF_input.txt_), parse the input argurments and download the data to the user specified output directory. As shown in the figure below, the user should modify the following inputs in the file prior to running the script. 
 
+  - **gpkg_path**: full path where the geopackage file is stored.
+  - **gpkg_file**: the geopackage filename (e.g. NIFC_2024_TX_Windy_Deuce.gkpg).
+  - **SAR_file_type**: 'SLC' for coherence products, 'GRD' for polarimeteric Sigma0 files.
+  - **SAR_download_path**: full path where the API should download SAR files to.
+  - **OrbitalBuffer_days**: Number of days to add before the start date and after the end date for the desired time period of interest.
 
+  If no geopackge is available for your ROI, you can specify a wkt polygon and start/end dates in the API. An example for such case is provided here >> https://github.com/rcassotto/Sentinel-1-GRD-to-RTC-Pre-Processing/tree/main/ASF_API.
+
+This step requires an EarthData account and credentials. Be sure to add your Earth Data account credentials to your bashrc file by executing the following commands in a terminal:      
+         **_export ASF_API_PASS=&lt;password>_**   
+         **_export ASF_API_USER=&lt;username>_**  
+   _Note &lt;username> and &lt;password> should be replaced with the Earth Data account credentials without angled brackets but with single quotes (‘ ‘)._
+
+To execute script:
+1) Activate your dedicated python environment, if not already in the environment.
+2) initiate script: **_python3 FIREDpy_query_asf_v2.0.py NIFC_2024_TX_Windy_Deuce.gkpg_**
+     
 ![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
 
-### Step 2 - Pre-Process SLC data to Coherence Images
 
+### Step 2 - Pre-Process SLC data to Coherence Images
+Once the data download is complete, continue to step 2: pre-process SLC data to coherence images. 
+
+This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_7792_des_input_slc_proc.txt) to their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 12 to continue the batch process with the 12th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
 
 ![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
 
