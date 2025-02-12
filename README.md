@@ -24,7 +24,7 @@ Two additional dependecies are required to run the workflow; both are open sourc
 - gdal (https://gdal.org/en/stable/download.html)
 - The SeNtinel Application Platform (SNAP)
 
-#### GDAL
+  #### _GDAL_
 
 SNAP: install SNAP (https://step.esa.int/main/download/snap-download/)
 Note: A SNAP update may be necessary, even after a fresh install. 
