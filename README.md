@@ -1,7 +1,5 @@
 # SAR-Wildfire-Mapping
-Python based tools to map the evolution of wildfire burn areas. The tools use both SLC-derived coherence images and GRD-derived polarimeteric observations to produce burn area maps. A diagram of the full workflow is provided in the repository as a png file and included here for illustration.  
-
-![FIREDpy-SAR Detection](https://github.com/user-attachments/assets/7df51b63-6817-4e90-9cf3-78dd15abd26e)
+Python based tools to map the evolution of wildfire burn areas. The tools use both SLC-derived coherence images and GRD-derived polarimeteric observations to produce burn area maps. A diagram of the full workflow is provided above in the repository as a png file. Segments of it are provided below to detail the steps.   
 
 ## Overview
 The workflow contains 6 major steps with some requiring several smaller steps. Future iterations will consolidate the workflow into fewer steps. For now, the workflow consists of:
@@ -14,14 +12,14 @@ The workflow contains 6 major steps with some requiring several smaller steps. F
 
 
 ## Initial Setup 
-It is highly recommended to create a dedicated python environment to operate in. I use anaconda (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html), but many tools are available. 
+It is highly recommended to create a dedicated python environment to operate in. Many python package tools are available; I use anaconda (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 Once a dedicated environment is created and activated, install the necessary python dependencies (see below). 
 
 
 
 ## Python Dependencies
-asf_search
+asf_search <br>
 fiona
 gdal
 geopandas
