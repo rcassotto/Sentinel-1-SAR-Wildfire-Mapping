@@ -19,10 +19,7 @@ Once a dedicated environment is created and activated, install the necessary pyt
 
 
 ## Python Dependencies
-asf_search <br>
-fiona
-gdal
-geopandas
+asf_search <br> fiona <br> gdal <br>geopandas
 json
 matplotlib
 numpy
