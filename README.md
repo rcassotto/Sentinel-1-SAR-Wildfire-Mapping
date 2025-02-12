@@ -20,6 +20,16 @@ Once a dedicated environment is created and activated, install the necessary pyt
 asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br> pandas<br> rasterio<br> scipy<br> shapely<br> simplekml<br> skimage<br>
 
 ### Non-Python Dependencies
+Two additional dependecies are required to run the workflow; both are open sourced. 
+- gdal (https://gdal.org/en/stable/download.html)
+- The SeNtinel Application Platform (SNAP)
+
+#### GDAL
+
+SNAP: install SNAP (https://step.esa.int/main/download/snap-download/)
+Note: A SNAP update may be necessary, even after a fresh install. 
+    E.g. /local_path_to_snap/snap/bin/snap --nosplash --nogui --modules --update-all
+
 
 ## Detailed workflow
 
