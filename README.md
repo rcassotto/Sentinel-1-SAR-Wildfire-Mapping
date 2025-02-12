@@ -69,7 +69,17 @@ To execute script:
 ### Step 2 - Pre-Process SLC data to Coherence Images
 Once the data download is complete, continue to step 2: pre-process SLC data to coherence images. 
 
-This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_7792_des_input_slc_proc.txt) to their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 12 to continue the batch process with the 12th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
+This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_process_coh_input_asc.txt) with their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 11 to continue the batch process with the 11th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
+
+Make the following changes prior to running this script for the first time:
+  1) Open the script _Process_SLC2Coh_wSNAP_v1.0.py_ with a python editor.
+  2) Perform a search and replace for the following fields
+      - _base_snap_exe_no_aux_: full path for the gpt binary
+      - _base_snap_exe_: full path for the gpt binary
+      - _gdal_exe_: full path to gdal_translate 
+      - _aux_poe_: full path for Sentinel-1 precise orbits
+      - _res_orb_: full path for Sentinel-1 restituted orbits
+      - _workflow_dir_: full path where the files in this repository were downloaded or cloned to. 
 
 ![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
 
