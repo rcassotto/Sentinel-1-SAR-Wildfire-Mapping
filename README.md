@@ -21,13 +21,30 @@ Once a dedicated environment is created and activated, install the necessary pyt
 ## Python Dependencies
 asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br> pandas<br> rasterio<br> scipy<br> shapely<br> simplekml<br> skimage<br>
 
-
-![FIREDpy-SAR Detection_zoom](https://github.com/user-attachments/assets/24a38cf5-5bbc-4071-9e8e-582626ec9bf0)
-
-
-
-
 ## Detailed workflow
+
+
+![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
+
+
+![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
+
+
+![FIREDpy-SAR Detection_zoom_step3](https://github.com/user-attachments/assets/083d0fb7-8586-4a60-9536-cf25c1c3c6ce)
+
+
+![FIREDpy-SAR Detection_zoom_step4](https://github.com/user-attachments/assets/1e42a47d-0fd7-4a86-b051-09a41caecb1d)
+
+
+![FIREDpy-SAR Detection_zoom_step5](https://github.com/user-attachments/assets/4000ded6-a3a5-47b8-b206-0827b684766a)
+
+
+
+
+![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
+
+
+
 ## Download SLC or GRD data from ASF
 Use ASF's vertex or API tools to download desired data.
 
