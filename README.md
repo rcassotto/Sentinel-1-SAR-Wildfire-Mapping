@@ -44,6 +44,9 @@ Two additional dependecies are required to run the workflow; both are open sourc
 As mentioned, a png file of the full workflow is provide in the repository above. The following provides the individual steps of the workflow. 
 
 ### Step 1 - Download SAR data from ASF
+<br>
+![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
+<br><br>
 For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_Windy_Deuce.gkpg). The python script _FIREDpy_query_asf_v2.0.py_ will read an input file (_FIREDpy_query_ASF_input.txt_), parse the input argurments and download the data to the user specified output directory. As shown in the figure below, the user should modify the following inputs in the file prior to running the script. 
 
   - **gpkg_path**: full path where the geopackage file is stored.
@@ -63,13 +66,15 @@ To execute script:
 1) Activate your dedicated python environment, if not already in the environment.
 2) initiate script: **_python3 FIREDpy_query_asf_v2.0.py NIFC_2024_TX_Windy_Deuce.gkpg_**
      
-![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
-
-
 
 <br><br><br>
 
 ### Step 2 - Pre-Process SLC data to Coherence Images
+<br>
+
+![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
+
+<br>
 Once the data download is complete, continue to step 2: pre-process SLC to coherence images. This step should be completed before or in parallel with pre-process GRD to Sigma0 images (step 4). It must be completed before step 5 as the workflow relies on coherence change images (step 3) to generate polarimetric differenced images. 
 
 This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_process_coh_input_asc.txt) with their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 11 to continue the batch process with the 11th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
@@ -95,8 +100,7 @@ The coherence files will be located in a _Processed_data_ directory, with each i
 
 The script will need to be executed from within the _Processed_data_ directory. 
 
-![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
-
+<br><br><br>
 
 
 
