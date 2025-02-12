@@ -45,11 +45,6 @@ As mentioned, a png file of the full workflow is provide in the repository above
 
 ### Step 1 - Download SAR data from ASF
 <br>
-
-![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
-
-<br><br>
-
 For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_Windy_Deuce.gkpg). The python script _FIREDpy_query_asf_v2.0.py_ will read an input file (_FIREDpy_query_ASF_input.txt_), parse the input argurments and download the data to the user specified output directory. As shown in the figure below, the user should modify the following inputs in the file prior to running the script. 
 
   - **gpkg_path**: full path where the geopackage file is stored.
@@ -57,6 +52,11 @@ For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_W
   - **SAR_file_type**: 'SLC' for coherence products, 'GRD' for polarimeteric Sigma0 files.
   - **SAR_download_path**: full path where the API should download SAR files to.
   - **OrbitalBuffer_days**: Number of days to add before the start date and after the end date for the desired time period of interest.
+<br><br>
+
+![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
+
+<br><br>
 
   If no geopackge is available for your ROI, you can specify a wkt polygon and start/end dates in the API. An example for such case is provided here >> https://github.com/rcassotto/Sentinel-1-GRD-to-RTC-Pre-Processing/tree/main/ASF_API.
 
@@ -119,19 +119,22 @@ The script will need to be executed from within the _Processed_data_ directory.
 
 ![FIREDpy-SAR Detection_zoom_step3](https://github.com/user-attachments/assets/083d0fb7-8586-4a60-9536-cf25c1c3c6ce)
 
+
+<br><br><br>
 ### Step 4 - Pre-process GRD files to RTC Sigma0 Images
 
 
 ![FIREDpy-SAR Detection_zoom_step4](https://github.com/user-attachments/assets/1e42a47d-0fd7-4a86-b051-09a41caecb1d)
 
-
+<br><br><br>
 ### Step 5 - Generate Polarimetric Change Data
 
 ![FIREDpy-SAR Detection_zoom_step5](https://github.com/user-attachments/assets/4000ded6-a3a5-47b8-b206-0827b684766a)
 
-
+<br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
 
 ![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
 
 
+<br><br>
