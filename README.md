@@ -16,10 +16,10 @@ It is highly recommended to create a dedicated python environment to operate in.
 
 Once a dedicated environment is created and activated, install the necessary python dependencies (see below). 
 
-
-
-## Python Dependencies
+### Python Dependencies
 asf_search<br> fiona<br> gdal<br> geopandas<br> json<br> matplotlib<br> numpy<br> pandas<br> rasterio<br> scipy<br> shapely<br> simplekml<br> skimage<br>
+
+### Non-Python Dependencies
 
 ## Detailed workflow
 
