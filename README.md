@@ -36,29 +36,36 @@ Two additional dependecies are required to run the workflow; both are open sourc
 
 ## Detailed workflow
 
+### Step 1 - Download SAR data from ASF
+
 
 ![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
+
+### Step 2 - Pre-Process SLC data to Coherence Images
 
 
 ![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
 
 
+### Step 3 - Generate Coherence Change Images
+
+
+
 ![FIREDpy-SAR Detection_zoom_step3](https://github.com/user-attachments/assets/083d0fb7-8586-4a60-9536-cf25c1c3c6ce)
+
+### Step 4 - Pre-process GRD files to RTC Sigma0 Images
 
 
 ![FIREDpy-SAR Detection_zoom_step4](https://github.com/user-attachments/assets/1e42a47d-0fd7-4a86-b051-09a41caecb1d)
 
 
+### Step 5 - Generate Polarimetric Change Data
+
 ![FIREDpy-SAR Detection_zoom_step5](https://github.com/user-attachments/assets/4000ded6-a3a5-47b8-b206-0827b684766a)
 
 
-
+### Step 6 - Generate Binary Fire Products and Combine Results
 
 ![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
-
-
-
-## Download SLC or GRD data from ASF
-Use ASF's vertex or API tools to download desired data.
 
 
