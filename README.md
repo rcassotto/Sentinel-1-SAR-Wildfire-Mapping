@@ -67,7 +67,7 @@ To execute script:
 
 
 
-
+<br><br><br>
 
 ### Step 2 - Pre-Process SLC data to Coherence Images
 Once the data download is complete, continue to step 2: pre-process SLC to coherence images. This step should be completed before or in parallel with pre-process GRD to Sigma0 images (step 4). It must be completed before step 5 as the workflow relies on coherence change images (step 3) to generate polarimetric differenced images. 
