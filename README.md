@@ -67,7 +67,7 @@ To execute script:
 
 
 ### Step 2 - Pre-Process SLC data to Coherence Images
-Once the data download is complete, continue to step 2: pre-process SLC data to coherence images. 
+Once the data download is complete, continue to step 2: pre-process SLC to coherence images. This step should be completed before or in parallel with pre-process GRD to Sigma0 images (step 4). It must be completed before step 5 as the workflow relies on coherence change images (step 3) to generate polarimetric differenced images. 
 
 This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_process_coh_input_asc.txt) with their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 11 to continue the batch process with the 11th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
 
@@ -79,7 +79,16 @@ Make the following changes prior to running this script for the first time:
       - _gdal_exe_: full path to gdal_translate 
       - _aux_poe_: full path for Sentinel-1 precise orbits
       - _res_orb_: full path for Sentinel-1 restituted orbits
-      - _workflow_dir_: full path where the files in this repository were downloaded or cloned to. 
+      - _workflow_dir_: full path where the files in this repository were downloaded or cloned to.
+
+Orbit Files: are critical to processing Sentinel-1 SLC or GRD data. As written, the script will try  to automatically download Sentinel-1 orbit files to the user's dedicated orbit directories. However, the location of the Copernicus host changed in 2023. As of Feb 2025, you can obtain Sentinel-1 orbit files through one of two methods below. Be sure to download the necessary orbit files prior to executing this script. 
+    - A clever pythonized workaround from Scott Stanie (https://github.com/scottstanie/sentineleof/tree/master).
+    - Through AWS: https://registry.opendata.aws/s1-orbits/.
+
+Once correct pathways are updated in your python script, the input file is amended for your area of interest, and orbit files are downloaded, execute the python script with the following command:
+  **_python3 Process_SLC2Coh_wSNAP_v1.0.py FIREDpy_process_coh_input_asc.txt_**
+
+  
 
 ![FIREDpy-SAR Detection_zoom_step2](https://github.com/user-attachments/assets/f25e28ba-a318-4c00-8505-d4d234bcf83a)
 
