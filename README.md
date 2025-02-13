@@ -169,15 +169,42 @@ The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. 
 <br><br><br>
 ### Step 5 - Generate Polarimetric Change Data
 
-The generation of polarimetric change images includes several individual steps.
-
-  #### Merge/Crop Sigma0 Images
-  _merge_crop_sigma0_images_2ROI_v1.0.py_: This script is similar to the merge/crop coherence script, but does so for the Sigma0 images. Like the merge/crop coherence module, the full path to gdal_merge will need to be updated in the python   script to reflect the location on your local machine. 
-
-
-
+The generation of polarimetric change images includes several individual steps as outlined in the figure below. 
+<br>
 
 ![FIREDpy-SAR Detection_zoom_step5](https://github.com/user-attachments/assets/4000ded6-a3a5-47b8-b206-0827b684766a)
+<br><br>
+
+  #### Merge/Crop Sigma0 Images
+  _merge_crop_sigma0_images_2ROI_v1.0.py_: This script is similar to the merge/crop coherence script, but does so for the Sigma0 images. Like the merge/crop coherence module, the full path to gdal_merge will need to be updated in the python   script to reflect the location on your local machine.
+
+  It utilizes an input file (e.g. _merge_sigma0_input.txt_) with the following inputs:
+      - _sigma0_file_loc_: full path to the Sigma0 image files from Step 4.
+      - _out_dir_: full path for the user defined merged/cropped sigma0 output images.
+      - _input_image_suffix_: suffix for the input files (e.g. 'Sigma0_VV.tif'; the code will automatically search for VH counterparts)
+      - _fire_roi_gis_file_: filename for the geopackage defining your region of interest.
+      - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
+      - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
+
+  Execute merge/crop sigma0: **_python3 merge_crop_sigma0_images_2ROI_v1.0.py merge_sigma0_input.txt_**
+
+  #### Make polarimetric images
+  _SAR_Classification_VV_VH_v4.0.py_ creates a 3-band false color composite comprised of VV, VH, and VH/VV.  It also creates a single-band luminance image based on the false color composite. 
+
+  The command utilizes an input file (e.g. _WindyDeuce_class_asc_input.txt_) with the following inputs:
+      - _sigma0_file_loc_: full path to the cropped/merged Sigma0 image files. 
+      - _out_dir_: full path for false color and luminance output images.
+      - _sigma_ref_image_": user defined reference image for normalization. If none is specified, the script will auto select. 
+      - _use_norm_images_: a boolean argument to specify whether the Sigma0 images should first be normalized. 
+
+  _SAR_polarimetric_RVI_RFDI_v1.0.py_: creates radar vegetation indexed (RVI) images and radar forest degradation indexed (RFDI) images using the polarimetric Sigma0 files. It uses input files with similar input requirements as outlined in figure above. 
+  
+Once the appropriate input data has been modified for user-defined inputs, the commands can be executed by calling the python scripts with intput files. For example, 
+  **_python3 SAR_Classification_VV_VH_rev4.0.py WindyDeuce_class_asc_input.txt_**
+  **_python3 SAR_polarimetric_RVI_RFDI_v1.0.py WindyDeuce_rvi_rfdi_input_asc.txt_**
+
+
+#### Difference polarimetric images 
 
 <br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
