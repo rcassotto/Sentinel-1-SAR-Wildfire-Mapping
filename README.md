@@ -47,11 +47,11 @@ As mentioned, a png file of the full workflow is provide in the repository above
 <br>
 For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_Windy_Deuce.gkpg). The python script _FIREDpy_query_asf_v2.0.py_ will read an input file (_FIREDpy_query_ASF_input.txt_), parse the input argurments and download the data to the user specified output directory. As shown in the figure below, the user should modify the following inputs in the file prior to running the script. 
 
-  - **gpkg_path**: full path where the geopackage file is stored.
-  - **gpkg_file**: the geopackage filename (e.g. NIFC_2024_TX_Windy_Deuce.gkpg).
-  - **SAR_file_type**: 'SLC' for coherence products, 'GRD' for polarimeteric Sigma0 files.
-  - **SAR_download_path**: full path where the API should download SAR files to.
-  - **OrbitalBuffer_days**: Number of days to add before the start date and after the end date for the desired time period of interest.
+  - _gpkg_path_: full path where the geopackage file is stored.
+  - _gpkg_file_: the geopackage filename (e.g. NIFC_2024_TX_Windy_Deuce.gkpg).
+  - _SAR_file_type_: 'SLC' for coherence products, 'GRD' for polarimeteric Sigma0 files.
+  - _SAR_download_path_: full path where the API should download SAR files to.
+  - _OrbitalBuffer_days_: Number of days to add before the start date and after the end date for the desired time period of interest.
 <br>
 
 ![FIREDpy-SAR Detection_zoom_step1](https://github.com/user-attachments/assets/b793ad49-adf6-4923-8bcf-0b096ecf739e)
@@ -107,7 +107,35 @@ The script will need to be executed from within the _Processed_data_ directory.
 
 ### Step 3 - Generate Coherence Change Images
 
+Two different scripts are used to generate coherence change images: 
 
+  - _merge_crop_coherence_images_2ROI_v1.0.py_: crops the Sigma0 scenes to the geometry defined in the geopackage. It applies a user defined buffer to be added to the region as a percentage of the total bounding box of the geometry within the geopackage. When two or more scenes appear have the same date (e.g. adjacent Sentinel-1 paths), the script will merge these scenes into a single.  The script outputs a geotiff and a metafile with each having a date string prefix (e.g. YYYYMMDD_coherence.tif).
+    
+  - _FIREDpy_SAR_coh_change_rev05.py_: This script normalizes the stack of coherence images to a single image to reduce differences in coherence scenes between dates. It outputs the normalized coherence image, the coherence change image, log files, and a histogram of the normalization process.
+
+    
+   #### Initial Setup
+  Make the following changes prior to running the scripts for the first time:
+    1) Open the script _merge_crop_coherence_images_2ROI_v1.0.py_ with a python editor.
+    2) Replace the path for gdal_merge.py with the full path on your local machine. The line to search for beging with "gm = ". Save and close the script in the python editor.
+  
+  #### Executing Step 3
+  1) Use a text editor to make the following changes to the input file to merge and crop the coherence images (e.g. _CA_Monument_merge_crop_coh_input_des.txt_)
+      - _coh_file_loc_: full path to the coherence image files from Step 2.
+      - _out_dir_: full path for the user defined merged/cropped coherence output images.
+      - _input_image_suffix_: ending suffix for the input files (e.g. 'coherence_VV.tif')
+      - _fire_roi_gis_file_: filename for the geopackage defining your region of interest.
+      - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
+      - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
+     2) Execute the merge/crop step: **_python3 merge_crop_coherence_images_2ROI_v1.0.py CA_Monument_merge_crop_coh_input_des.txt_**
+     3) Use a text editor to make the following changes to the input file to merge and crop the coherence images (e.g. _CA_Monument_FIREDpy_coh_change_input_des.txt_)
+      - _coh_file_loc_: full path to the merged/cropped images above. 
+      - _out_dir_: full path for coh change output files. 
+      - _tif_suffix_: suffix for the input files (e.g. 'coherence_VV.tif').
+      - _ref_image_: reference image for the normalization process. If not specified, the program will auto-select.
+     4) Excecute the Coh Change script: **_python3 FIREDpy_SAR_coh_change_rev05.py CA_Monument_FIREDpy_coh_change_input_des.txt_**
+        
+The figure below illustrates the individual steps outlined above. 
 
 ![FIREDpy-SAR Detection_zoom_step3](https://github.com/user-attachments/assets/083d0fb7-8586-4a60-9536-cf25c1c3c6ce)
 
@@ -127,10 +155,10 @@ The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. 
   #### Executing Step 4
   1) Use a text editor to open the input file: _rtc_sample_inputs.txt_.
   2) Amend the inputs for your configuation
-       - **DEM**: DEM path and filename (optional); the program will default to SRTM if not specified.
-       - **grd_file_loc**: full path of the GRD zip files.
-       - **output_dir**: full path of the output directory for the output files.
-       - **pixsize**: desired output pixel size in meters.
+       - _DEM_: DEM path and filename (optional); the program will default to SRTM if not specified.
+       - _grd_file_loc_: full path of the GRD zip files.
+       - _output_dir_: full path of the output directory for the output files.
+       - _pixsize_: desired output pixel size in meters.
   3) Initiate the python script: **_python3 RTC_V3.py rtc_sample_inputs.txt_**
 
   The program will generate several output files as shown in the figure below. 
