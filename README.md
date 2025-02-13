@@ -192,16 +192,16 @@ The generation of polarimetric change images includes several individual steps a
   _SAR_Classification_VV_VH_v4.0.py_ creates a 3-band false color composite comprised of VV, VH, and VH/VV.  It also creates a single-band luminance image based on the false color composite. 
 
   The command utilizes an input file (e.g. _WindyDeuce_class_asc_input.txt_) with the following inputs:
-      - _sigma0_file_loc_: full path to the cropped/merged Sigma0 image files. 
-      - _out_dir_: full path for false color and luminance output images.
-      - _sigma_ref_image_": user defined reference image for normalization. If none is specified, the script will auto select. 
-      - _use_norm_images_: a boolean argument to specify whether the Sigma0 images should first be normalized. 
+<br> &emsp;&emsp; - _sigma0_file_loc_: full path to the cropped/merged Sigma0 image files. 
+<br> &emsp;&emsp; - _out_dir_: full path for false color and luminance output images.
+<br> &emsp;&emsp; - _sigma_ref_image_": user defined reference image for normalization. If none is specified, the script will auto select. 
+<br> &emsp;&emsp; - _use_norm_images_: a boolean argument to specify whether the Sigma0 images should first be normalized. 
 
   _SAR_polarimetric_RVI_RFDI_v1.0.py_: creates radar vegetation indexed (RVI) images and radar forest degradation indexed (RFDI) images using the polarimetric Sigma0 files. It uses input files with similar input requirements as outlined in figure above. 
   
-Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, 
-  **_python3 SAR_Classification_VV_VH_rev4.0.py WindyDeuce_class_asc_input.txt_**
-  **_python3 SAR_polarimetric_RVI_RFDI_v1.0.py WindyDeuce_rvi_rfdi_input_asc.txt_**
+Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, <br>
+  **_python3 SAR_Classification_VV_VH_rev4.0.py WindyDeuce_class_asc_input.txt_** <br>
+  **_python3 SAR_polarimetric_RVI_RFDI_v1.0.py WindyDeuce_rvi_rfdi_input_asc.txt_** <br>
 
 
 #### Difference polarimetric images 
@@ -218,10 +218,10 @@ It utilizes an input file (e.g. _FIREDpy_input_lumDelta_ref_file.txt_) with the 
 
 The _make_DeltaRVI_images_v2.0.py_ and _make_DeltaRFDI_images_v2.0.py_ scripts are very similar to _make_lumDelta_images_2.0.py_.  Their input files and values therein are also similar. The full input arguements are provided in the figure depicting Step 5 above. 
 
-Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, 
-  **_python3 make_lumDelta_images_v2.0.py FIREDpy_input_lumDelta_ref_file.txt_**
-  **_python3 make_DeltaRVI_images_v2.0.py FIREDpy_input_DeltaRVI_ref_file.txt_**
-  **_python3 make_DeltaRFDI_images_v2.0.py FIREDpy_input_DeltaRFDI_ref_file.txt_**
+Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, <br>
+  **_python3 make_lumDelta_images_v2.0.py FIREDpy_input_lumDelta_ref_file.txt_** <br>
+  **_python3 make_DeltaRVI_images_v2.0.py FIREDpy_input_DeltaRVI_ref_file.txt_** <br>
+  **_python3 make_DeltaRFDI_images_v2.0.py FIREDpy_input_DeltaRFDI_ref_file.txt_** <br>
 
 <br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
