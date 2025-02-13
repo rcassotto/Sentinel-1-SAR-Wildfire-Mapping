@@ -60,15 +60,15 @@ For the purposes of this demonstration, a geopackage is provided (NIFC_2024_TX_W
 
   If no geopackge is available for your ROI, you can specify a wkt polygon and start/end dates in the API. An example for such case is provided here >> https://github.com/rcassotto/Sentinel-1-GRD-to-RTC-Pre-Processing/tree/main/ASF_API.
 
-This step requires an EarthData account and credentials. Be sure to add your Earth Data account credentials to your bashrc file by executing the following commands in a terminal:      
-         **_export ASF_API_PASS=&lt;password>_**   
-         **_export ASF_API_USER=&lt;username>_**  
+This step requires an EarthData account and credentials. Be sure to add your Earth Data account credentials to your bashrc file by executing the following commands in a terminal:    <br>  
+         **_export ASF_API_PASS=&lt;password>_**   <br>
+         **_export ASF_API_USER=&lt;username>_**  <br>
    _Note &lt;username> and &lt;password> should be replaced with the Earth Data account credentials without angled brackets but with single quotes (‘ ‘)._
 
-To execute script:
-1) Activate your dedicated python environment, if not already in the environment.
-2) initiate script: **_python3 FIREDpy_query_asf_v2.0.py NIFC_2024_TX_Windy_Deuce.gkpg_**
-   
+To execute script: <br>
+1) Activate your dedicated python environment, if not already in the environment. <br>
+2) initiate script: **_python3 FIREDpy_query_asf_v2.0.py NIFC_2024_TX_Windy_Deuce.gkpg_** <br>
+    
 <br><br>
 ### Step 2 - Pre-Process SLC data to Coherence Images
 <br>
@@ -81,9 +81,9 @@ Once the data download is complete, continue to step 2: pre-process SLC to coher
 
 This step will create coherence images for all SLC files in the user specified directory. Consequently, this step can take several hours or days to complete, depending on the output resolution and number of input files. As with the data download step, users should modify an input text file (e.g. FIREDpy_process_coh_input_asc.txt) with their associated input values.  The fire_roi_polygon and fire_roi_path input arguments are not used in the current version, but will be used in future revisions. The sys_index_var should be 0 for the initial run.  If failures persist midway through batch processing coherence images, this value should be changed to reflect the next iteration of coherence image. For example, if 10 coherence images successfully completed and the 11th image failed, sys_index_var should be set to 11 to continue the batch process with the 11th iteration of coherence image pairs. The command below will generate coherence and intensity images for each coherence pair. 
 
-Make the following changes prior to running this script for the first time:
-  1) Open the script _Process_SLC2Coh_wSNAP_v1.0.py_ with a python editor.
-  2) Perform a search and replace for the following fields
+Make the following changes prior to running this script for the first time: <br>
+  1) Open the script _Process_SLC2Coh_wSNAP_v1.0.py_ with a python editor. <br>
+  2) Perform a search and replace for the following fields <br>
       - _base_snap_exe_no_aux_: full path for the gpt binary
       - _base_snap_exe_: full path for the gpt binary
       - _gdal_exe_: full path to gdal_translate 
@@ -91,12 +91,12 @@ Make the following changes prior to running this script for the first time:
       - _res_orb_: full path for Sentinel-1 restituted orbits
       - _workflow_dir_: full path where the files in this repository were downloaded or cloned to.
 
-Orbit Files: are critical to processing Sentinel-1 SLC or GRD data. As written, the script will try  to automatically download Sentinel-1 orbit files to the user's dedicated orbit directories. However, the location of the Copernicus host changed in 2023. As of Feb 2025, you can obtain Sentinel-1 orbit files through one of two methods below. Be sure to download the necessary orbit files prior to executing this script. 
-    - A clever pythonized workaround from Scott Stanie (https://github.com/scottstanie/sentineleof/tree/master).
-    - Through AWS: https://registry.opendata.aws/s1-orbits/.
+Orbit Files: are critical to processing Sentinel-1 SLC or GRD data. As written, the script will try  to automatically download Sentinel-1 orbit files to the user's dedicated orbit directories. However, the location of the Copernicus host changed in 2023. As of Feb 2025, you can obtain Sentinel-1 orbit files through one of two methods below. Be sure to download the necessary orbit files prior to executing this script. <br>
+    - A clever pythonized workaround from Scott Stanie (https://github.com/scottstanie/sentineleof/tree/master). <br>
+    - Through AWS: https://registry.opendata.aws/s1-orbits/. <br>
 
-Once correct pathways are updated in your python script, the input file is amended for your area of interest, and orbit files are downloaded, execute the python script with the following command:
-  **_python3 Process_SLC2Coh_wSNAP_v1.0.py FIREDpy_process_coh_input_asc.txt_**
+Once correct pathways are updated in your python script, the input file is amended for your area of interest, and orbit files are downloaded, execute the python script with the following command: <br>
+  **_python3 Process_SLC2Coh_wSNAP_v1.0.py FIREDpy_process_coh_input_asc.txt_** <br>
 
 The coherence files will be located in a _Processed_data_ directory, with each image further located in subfolders organized by the date and times of the primary and secondary image pairs. A shell script (_move_tif_files2_coherence_tif_copies_dir.sh_) is provided to move these files into a new centralized directory called _coherence_tif_copies_ with the _Processed_data_ directory (e.g. _/Processed_data/coherence_tif_copies/_); it also removes the extraneous data generated during the pre-processing. 
 
@@ -115,9 +115,9 @@ Two different scripts are used to generate coherence change images:
 
     
    #### Initial Setup
-  Make the following changes prior to running the scripts for the first time:
-    1) Open the script _merge_crop_coherence_images_2ROI_v1.0.py_ with a python editor.
-    2) Replace the path for gdal_merge.py with the full path on your local machine. The line to search for beging with "gm = ". Save and close the script in the python editor.
+  Make the following changes prior to running the scripts for the first time: <br>
+    1) Open the script _merge_crop_coherence_images_2ROI_v1.0.py_ with a python editor. <br>
+    2) Replace the path for gdal_merge.py with the full path on your local machine. The line to search for beging with "gm = ". Save and close the script in the python editor. <br>
   
   #### Executing Step 3
   1) Use a text editor to make the following changes to the input file to merge and crop the coherence images (e.g. _CA_Monument_merge_crop_coh_input_des.txt_)
@@ -146,20 +146,20 @@ The figure below illustrates the individual steps outlined above.
 The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. Specifically, it applies an orbit correction, removes border noise, calibrates the data, applies a speckle filter, terrain corrects and generates Sigma0 geotiffs; it also removes ancillary products generated during the pre-processing steps. 
 
   #### Initial Setup
-  Make the following changes prior to running this script for the first time:
-    1) Open the script _RTC_V3.py_ with a python editor.
-    2) Perform a search and replace for the following fields
-        - "usr/local/bin/gdal_translate" with the location of gdal_translate on your machine.
-        - baseSNAP: replace the current path with the location of where the SNAP gpt binary is located.
+  Make the following changes prior to running this script for the first time: <br>
+    1) Open the script _RTC_V3.py_ with a python editor. 
+    2) Perform a search and replace for the following fields <br>
+        - "usr/local/bin/gdal_translate" with the location of gdal_translate on your machine. <br>
+        - baseSNAP: replace the current path with the location of where the SNAP gpt binary is located. <br>
   
   #### Executing Step 4
   1) Use a text editor to open the input file: _rtc_sample_inputs.txt_.
-  2) Amend the inputs for your configuation
-       - _DEM_: DEM path and filename (optional); the program will default to SRTM if not specified.
-       - _grd_file_loc_: full path of the GRD zip files.
-       - _output_dir_: full path of the output directory for the output files.
-       - _pixsize_: desired output pixel size in meters.
-  3) Initiate the python script: **_python3 RTC_V3.py rtc_sample_inputs.txt_**
+  2) Amend the inputs for your configuation <br>
+       - _DEM_: DEM path and filename (optional); the program will default to SRTM if not specified. <br>
+       - _grd_file_loc_: full path of the GRD zip files. <br>
+       - _output_dir_: full path of the output directory for the output files. <br>
+       - _pixsize_: desired output pixel size in meters. <br>
+  3) Initiate the python script: **_python3 RTC_V3.py rtc_sample_inputs.txt_** <br>
 
   The program will generate several output files as shown in the figure below. 
         
