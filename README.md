@@ -243,7 +243,7 @@ The input file contains several input arguments, including:
 <br> &nbsp;&nbsp;       - _dRVI_threshold_: dRVI change cutoff; program will autoselect if none specified.
 <br> &nbsp;&nbsp;        - _dRFDI_threshold_: dRFDI change cutoff; program will autoselect if none specified.
 <br> &nbsp;&nbsp;       - _filter_Delta_images_: boolean argument for spatially filtering the polarimetric images (e.g. DeltaLumin.tif, DeltaRVI.tif, DeltaRFDI.tif)
-<br> &nbsp;        - _filter_Coh_images_: boolean argument for spatially filtering coherence change images. 
+<br> &emsp;        - _filter_Coh_images_: boolean argument for spatially filtering coherence change images. 
 
 Once the appropriate input arguments have been modified for your data set, the command can be executed by calling the python script with an input file. For example, <br>
    &nbsp; **_python3 combine_S1_lumChange_cohChange_products.py FIREDpy_combine_SAR_products_WindyDeuce_asc.txt_**
