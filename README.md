@@ -229,20 +229,20 @@ Once the appropriate input data has been modified for your data set, the command
 The final step in the workflow is to generate binary output products and combine the results using the script _combine_S1_lumChange_cohChange_products.py_. 
 
 The input file contains several input arguments, including:
-<br> &nbsp;      - _DeltaLum_path_: full path to the luminance change files.
-<br> &nbsp;        - _coh_change_path_: full path to the coherence change files.
-<br> &nbsp;        - _dRVI_path_: full path to the RVI change files.
-<br> &nbsp;        - _dRFDI_path_: full path to the RFDI change files. 
-<br> &nbsp;        - _DeltaLum_suffix_: suffix for the luminance change files (e.g. 'DeltaLumin.tif').
-<br> &nbsp;        - _coh_change_suffix_: suffix for the coherence change files (eg. 'cohChange.tif').
- <br> &nbsp;       - _dRVI_suffix_: suffix for the RVI change files (e.g. 'DeltaRVI.tif').
-<br> &nbsp;        - _dRFDI_suffix_: suffix for the RFDI change files (e.g. 'DeltaRFDI.tif').
-<br> &nbsp;        - _out_dir_: full path for output products. 
-<br> &nbsp;        - _coh_threshold_: coherence change cutoff; program will autoselect if none specified.
-<br> &nbsp;        - _lum_threshold_: luminance change cutoff; program will autoselect if none specified.
-<br> &nbsp;        - _dRVI_threshold_: dRVI change cutoff; program will autoselect if none specified.
-<br> &nbsp;        - _dRFDI_threshold_: dRFDI change cutoff; program will autoselect if none specified.
-<br> &nbsp;        - _filter_Delta_images_: boolean argument for spatially filtering the polarimetric images (e.g. DeltaLumin.tif, DeltaRVI.tif, DeltaRFDI.tif)
+<br> &nbsp;&nbsp;      - _DeltaLum_path_: full path to the luminance change files.
+<br> &nbsp;&nbsp;        - _coh_change_path_: full path to the coherence change files.
+<br> &nbsp;&nbsp;        - _dRVI_path_: full path to the RVI change files.
+<br> &nbsp;&nbsp;        - _dRFDI_path_: full path to the RFDI change files. 
+<br> &nbsp;&nbsp;        - _DeltaLum_suffix_: suffix for the luminance change files (e.g. 'DeltaLumin.tif').
+<br> &nbsp;&nbsp;        - _coh_change_suffix_: suffix for the coherence change files (eg. 'cohChange.tif').
+ <br> &nbsp;&nbsp;       - _dRVI_suffix_: suffix for the RVI change files (e.g. 'DeltaRVI.tif').
+<br> &nbsp;&nbsp;        - _dRFDI_suffix_: suffix for the RFDI change files (e.g. 'DeltaRFDI.tif').
+<br> &nbsp;&nbsp;        - _out_dir_: full path for output products. 
+<br> &nbsp;&nbsp;        - _coh_threshold_: coherence change cutoff; program will autoselect if none specified.
+<br> &nbsp;&nbsp;        - _lum_threshold_: luminance change cutoff; program will autoselect if none specified.
+<br> &nbsp;&nbsp;       - _dRVI_threshold_: dRVI change cutoff; program will autoselect if none specified.
+<br> &nbsp;&nbsp;        - _dRFDI_threshold_: dRFDI change cutoff; program will autoselect if none specified.
+<br> &nbsp;&nbsp;       - _filter_Delta_images_: boolean argument for spatially filtering the polarimetric images (e.g. DeltaLumin.tif, DeltaRVI.tif, DeltaRFDI.tif)
 <br> &nbsp;        - _filter_Coh_images_: boolean argument for spatially filtering coherence change images. 
 
 Once the appropriate input arguments have been modified for your data set, the command can be executed by calling the python script with an input file. For example, <br>
