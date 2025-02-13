@@ -186,7 +186,7 @@ The generation of polarimetric change images includes several individual steps a
       - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
       - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
 
-  Execute merge/crop sigma0: **_python3 merge_crop_sigma0_images_2ROI_v1.0.py merge_sigma0_input.txt_**
+  Command to execute: **_python3 merge_crop_sigma0_images_2ROI_v1.0.py merge_sigma0_input.txt_**
 
   #### Make polarimetric images
   _SAR_Classification_VV_VH_v4.0.py_ creates a 3-band false color composite comprised of VV, VH, and VH/VV.  It also creates a single-band luminance image based on the false color composite. 
@@ -226,7 +226,28 @@ Once the appropriate input data has been modified for your data set, the command
 <br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
 
-![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
+The final step in the workflow is to generate binary output products and combine the results using the script _combine_S1_lumChange_cohChange_products.py_. 
 
+The input file contains several input arguments, including:
+       - _DeltaLum_path_: full path to the luminance change files.
+       - _coh_change_path_: full path to the coherence change files.
+       - _dRVI_path_: full path to the RVI change files.
+       - _dRFDI_path_: full path to the RFDI change files. 
+       - _DeltaLum_suffix_: suffix for the luminance change files (e.g. 'DeltaLumin.tif').
+       - _coh_change_suffix_: suffix for the coherence change files (eg. 'cohChange.tif').
+       - _dRVI_suffix_: suffix for the RVI change files (e.g. 'DeltaRVI.tif').
+       - _dRFDI_suffix_: suffix for the RFDI change files (e.g. 'DeltaRFDI.tif').
+       - _out_dir_: full path for output products. 
+       - _coh_threshold_: coherence change cutoff; program will autoselect if none specified.
+       - _lum_threshold_: luminance change cutoff; program will autoselect if none specified.
+       - _dRVI_threshold_: dRVI change cutoff; program will autoselect if none specified.
+       - _dRFDI_threshold_: dRFDI change cutoff; program will autoselect if none specified.
+       - _filter_Delta_images_: boolean argument for spatially filtering the polarimetric images (e.g. DeltaLumin.tif, DeltaRVI.tif, DeltaRFDI.tif)
+       - _filter_Coh_images_: boolean argument for spatially filtering coherence change images. 
+
+Once the appropriate input arguments have been modified for your data set, the command can be executed by calling the python script with an input file. For example, 
+  **_python3 combine_S1_lumChange_cohChange_products.py FIREDpy_combine_SAR_products_WindyDeuce_asc.txt_**
+<br>
+![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
 
 <br><br>
