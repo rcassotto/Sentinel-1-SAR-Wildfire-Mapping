@@ -199,12 +199,29 @@ The generation of polarimetric change images includes several individual steps a
 
   _SAR_polarimetric_RVI_RFDI_v1.0.py_: creates radar vegetation indexed (RVI) images and radar forest degradation indexed (RFDI) images using the polarimetric Sigma0 files. It uses input files with similar input requirements as outlined in figure above. 
   
-Once the appropriate input data has been modified for user-defined inputs, the commands can be executed by calling the python scripts with intput files. For example, 
+Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, 
   **_python3 SAR_Classification_VV_VH_rev4.0.py WindyDeuce_class_asc_input.txt_**
   **_python3 SAR_polarimetric_RVI_RFDI_v1.0.py WindyDeuce_rvi_rfdi_input_asc.txt_**
 
 
 #### Difference polarimetric images 
+_make_lumDelta_images_v2.0.py_ differences the luminance data derived above. It pairs images based on the coherence change image dates; that is, it creates a DeltaLumin geotiff for each coherence change image.  
+
+It utilizes an input file (e.g. _FIREDpy_input_lumDelta_ref_file.txt_) with the following inputs:
+      - _lum_file_loc_: full path to the luminance image files generated above.
+      - _out_dir_: full path for DeltaLumin output files.
+      - _lumin_suffix_: suffix for the input files (e.g. 'RGBLumin.tif')
+      - _coh_change_file_loc_: full path for the coherence change images.
+      - _coh_change_suffix_": suffix of coherence change images (e.g. 'cohChange.tif')
+      - _lum_ref_image_: filename for a reference luminance image for normalization.
+      - _use_norm_images_: boolean input for normalizing luminance images prior to differencing. 
+
+The _make_DeltaRVI_images_v2.0.py_ and _make_DeltaRFDI_images_v2.0.py_ scripts are very similar to _make_lumDelta_images_2.0.py_.  Their input files and values therein are also similar. The full input arguements are provided in the figure depicting Step 5 above. 
+
+Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, 
+  **_python3 make_lumDelta_images_v2.0.py FIREDpy_input_lumDelta_ref_file.txt_**
+  **_python3 make_DeltaRVI_images_v2.0.py FIREDpy_input_DeltaRVI_ref_file.txt_**
+  **_python3 make_DeltaRFDI_images_v2.0.py FIREDpy_input_DeltaRFDI_ref_file.txt_**
 
 <br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
