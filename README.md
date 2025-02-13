@@ -30,7 +30,7 @@ Two additional dependecies are required to run the workflow; both are open sourc
 - EarthData account (it's free!)
 
   #### _GDAL_
-  The Geospatial Data Abstraction Library is called within the python framework. **_If you installed gdal with python in the   evironment above, you can copy and paste the full path to the gdal_translate binary where indicated in the python scripts   below. You do not have to install gdal seperately_.** 
+  The Geospatial Data Abstraction Library is called within the python framework. **_If you installed gdal with python in the   evironment above, you can copy the full path to the installed binary for gdal_translate and paste it where indicated in the python scripts below. You do not have to install gdal seperately_.** 
 
   #### _SNAP_
   ESA's SNAP program is required to pre-process the SLC and GRD data to coherence and sigma0 images, respectively. Follow the instructions on ESA's website to install SNAP (https://step.esa.int/main/download/snap-download/). Once installed, note the full path of the gpt tool. You will need to enter it in the necessary scripts identified below.
@@ -115,8 +115,28 @@ The script will need to be executed from within the _Processed_data_ directory.
 <br><br><br>
 ### Step 4 - Pre-process GRD files to RTC Sigma0 Images
 
+The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. Specifically, it applies an orbit correction, removes border noise, calibrates the data, applies a speckle filter, terrain corrects and generates Sigma0 geotiffs; it also removes ancillary products generated during the pre-processing steps. 
 
+  #### Initial Setup
+  Make the following changes prior to running this script for the first time:
+    1) Open the script _RTC_V3.py_ with a python editor.
+    2) Perform a search and replace for the following fields
+        - "usr/local/bin/gdal_translate" with the location of gdal_translate on your machine.
+        - baseSNAP: replace the current path with the location of where the SNAP gpt binary is located.
+  
+  #### Executing Step 4
+  1) Use a text editor to open the input file: _rtc_sample_inputs.txt_.
+  2) Amend the inputs for your configuation
+       - **DEM**: DEM path and filename (optional); the program will default to SRTM if not specified.
+       - **grd_file_loc**: full path of the GRD zip files.
+       - **output_dir**: full path of the output directory for the output files.
+       - **pixsize**: desired output pixel size in meters.
+  3) Initiate the python script: **_python3 RTC_V3.py rtc_sample_inputs.txt_**
+
+  The program will generate several output files as shown in the figure below. 
+        
 ![FIREDpy-SAR Detection_zoom_step4](https://github.com/user-attachments/assets/1e42a47d-0fd7-4a86-b051-09a41caecb1d)
+
 
 <br><br><br>
 ### Step 5 - Generate Polarimetric Change Data
