@@ -178,7 +178,7 @@ The generation of polarimetric change images includes several individual steps a
   #### Merge/Crop Sigma0 Images
   _merge_crop_sigma0_images_2ROI_v1.0.py_: This script is similar to the merge/crop coherence script, but does so for the Sigma0 images. Like the merge/crop coherence module, the full path to gdal_merge will need to be updated in the python   script to reflect the location on your local machine.
 
-  It utilizes an input file (e.g. _merge_sigma0_input.txt_) with the following inputs: <br>
+  It utilizes an input file (e.g. _merge_sigma0_input.txt_) with the following inputs:
   <br> &emsp;&emsp; - _sigma0_file_loc_: full path to the Sigma0 image files from Step 4.
 <br> &emsp;&emsp; - _out_dir_: full path for the user defined merged/cropped sigma0 output images.
 <br> &emsp;&emsp;  - _input_image_suffix_: suffix for the input files (e.g. 'Sigma0_VV.tif'; the code will automatically search for VH counterparts)
