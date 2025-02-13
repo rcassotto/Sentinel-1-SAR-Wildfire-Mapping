@@ -169,6 +169,14 @@ The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. 
 <br><br><br>
 ### Step 5 - Generate Polarimetric Change Data
 
+The generation of polarimetric change images includes several individual steps.
+
+  #### Merge/Crop Sigma0 Images
+  _merge_crop_sigma0_images_2ROI_v1.0.py_: This script is similar to the merge/crop coherence script, but does so for the Sigma0 images. Like the merge/crop coherence module, the full path to gdal_merge will need to be updated in the python   script to reflect the location on your local machine. 
+
+
+
+
 ![FIREDpy-SAR Detection_zoom_step5](https://github.com/user-attachments/assets/4000ded6-a3a5-47b8-b206-0827b684766a)
 
 <br><br><br>
