@@ -178,13 +178,13 @@ The generation of polarimetric change images includes several individual steps a
   #### Merge/Crop Sigma0 Images
   _merge_crop_sigma0_images_2ROI_v1.0.py_: This script is similar to the merge/crop coherence script, but does so for the Sigma0 images. Like the merge/crop coherence module, the full path to gdal_merge will need to be updated in the python   script to reflect the location on your local machine.
 
-  It utilizes an input file (e.g. _merge_sigma0_input.txt_) with the following inputs:
-      - _sigma0_file_loc_: full path to the Sigma0 image files from Step 4.
-      - _out_dir_: full path for the user defined merged/cropped sigma0 output images.
-      - _input_image_suffix_: suffix for the input files (e.g. 'Sigma0_VV.tif'; the code will automatically search for VH counterparts)
-      - _fire_roi_gis_file_: filename for the geopackage defining your region of interest.
-      - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
-      - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
+  It utilizes an input file (e.g. _merge_sigma0_input.txt_) with the following inputs: <br>
+  <br> &emsp;&emsp; - _sigma0_file_loc_: full path to the Sigma0 image files from Step 4.
+<br> &emsp;&emsp; - _out_dir_: full path for the user defined merged/cropped sigma0 output images.
+<br> &emsp;&emsp;  - _input_image_suffix_: suffix for the input files (e.g. 'Sigma0_VV.tif'; the code will automatically search for VH counterparts)
+<br> &emsp;&emsp; - _fire_roi_gis_file_: filename for the geopackage defining your region of interest.
+<br> &emsp;&emsp; - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
+<br> &emsp;&emsp; - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
 
   Command to execute: **_python3 merge_crop_sigma0_images_2ROI_v1.0.py merge_sigma0_input.txt_**
 
