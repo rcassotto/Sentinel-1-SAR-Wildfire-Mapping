@@ -147,11 +147,11 @@ The _RTC_V3.py_ script will use SNAP to pre-process GRD to RTC Sigma0 geotiffs. 
 
   #### Initial Setup
   Make the following changes prior to running this script for the first time: <br>
-    1) Open the script _RTC_V3.py_ with a python editor. 
+    1) Open the script _RTC_V3.py_ with a python editor. <br>
     2) Perform a search and replace for the following fields <br>
-        - "usr/local/bin/gdal_translate" with the location of gdal_translate on your machine. <br>
-        - baseSNAP: replace the current path with the location of where the SNAP gpt binary is located. <br>
-  
+    <br> &emsp;&emsp;    - "usr/local/bin/gdal_translate" with the location of gdal_translate on your machine. <br>
+    <br> &emsp;&emsp;    - baseSNAP: replace the current path with the location of where the SNAP gpt binary is located. <br>
+
   #### Executing Step 4
   1) Use a text editor to open the input file: _rtc_sample_inputs.txt_.
   2) Amend the inputs for your configuation <br>
@@ -219,9 +219,9 @@ It utilizes an input file (e.g. _FIREDpy_input_lumDelta_ref_file.txt_) with the 
 The _make_DeltaRVI_images_v2.0.py_ and _make_DeltaRFDI_images_v2.0.py_ scripts are very similar to _make_lumDelta_images_2.0.py_.  Their input files and values therein are also similar. The full input arguements are provided in the figure depicting Step 5 above. 
 
 Once the appropriate input data has been modified for your data set, the commands can be executed by calling the python scripts with input files. For example, <br>
-  **_python3 make_lumDelta_images_v2.0.py FIREDpy_input_lumDelta_ref_file.txt_** <br>
-  **_python3 make_DeltaRVI_images_v2.0.py FIREDpy_input_DeltaRVI_ref_file.txt_** <br>
-  **_python3 make_DeltaRFDI_images_v2.0.py FIREDpy_input_DeltaRFDI_ref_file.txt_** <br>
+<br> &emsp;&emsp; **_python3 make_lumDelta_images_v2.0.py FIREDpy_input_lumDelta_ref_file.txt_** <br>
+<br> &emsp;&emsp;  **_python3 make_DeltaRVI_images_v2.0.py FIREDpy_input_DeltaRVI_ref_file.txt_** <br>
+<br> &emsp;&emsp;  **_python3 make_DeltaRFDI_images_v2.0.py FIREDpy_input_DeltaRFDI_ref_file.txt_** <br>
 
 <br><br><br>
 ### Step 6 - Generate Binary Fire Products and Combine Results
