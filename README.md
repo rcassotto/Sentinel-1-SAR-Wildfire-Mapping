@@ -245,9 +245,9 @@ The input file contains several input arguments, including:
        - _filter_Delta_images_: boolean argument for spatially filtering the polarimetric images (e.g. DeltaLumin.tif, DeltaRVI.tif, DeltaRFDI.tif)
        - _filter_Coh_images_: boolean argument for spatially filtering coherence change images. 
 
-Once the appropriate input arguments have been modified for your data set, the command can be executed by calling the python script with an input file. For example, 
+Once the appropriate input arguments have been modified for your data set, the command can be executed by calling the python script with an input file. For example, <br>
   **_python3 combine_S1_lumChange_cohChange_products.py FIREDpy_combine_SAR_products_WindyDeuce_asc.txt_**
-<br>
+<br><br>
 ![FIREDpy-SAR Detection_zoom_step6](https://github.com/user-attachments/assets/1bed0a59-f4f5-4b3a-832a-bfec1bdf2534)
 
 <br><br>
