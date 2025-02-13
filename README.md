@@ -35,8 +35,8 @@ Two additional dependecies are required to run the workflow; both are open sourc
   #### _SNAP_
   ESA's SNAP program is required to pre-process the SLC and GRD data to coherence and sigma0 images, respectively. Follow the instructions on ESA's website to install SNAP (https://step.esa.int/main/download/snap-download/). Once installed, note the full path of the gpt tool. You will need to enter it in the necessary scripts identified below.
   
-  Note: A SNAP update may be necessary, even after a fresh install. 
-    E.g. /local_path_to_snap/snap/bin/snap --nosplash --nogui --modules --update-all
+  _Note: A SNAP update may be necessary, even after a fresh install. 
+    E.g. **/local_path_to_snap/snap/bin/snap --nosplash --nogui --modules --update-all_**
 
 
 ## Detailed workflow
