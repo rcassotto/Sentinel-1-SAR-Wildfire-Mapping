@@ -127,13 +127,13 @@ Two different scripts are used to generate coherence change images:
       - _fire_roi_gis_file_: filename for the geopackage defining your region of interest.
       - _fire_roi_gis_path_: full path for the geopackage defining your region of interest.
       - _fire_perimeter_buffer_prct_: numerical value representing a buffer as a percent of the image size based on the geometric bounding box defined in the geopackage.
-     2) Execute the merge/crop step: **_python3 merge_crop_coherence_images_2ROI_v1.0.py CA_Monument_merge_crop_coh_input_des.txt_**
-     3) Use a text editor to make the following changes to the input file to merge and crop the coherence images (e.g. _CA_Monument_FIREDpy_coh_change_input_des.txt_)
+  2) Execute the merge/crop step: **_python3 merge_crop_coherence_images_2ROI_v1.0.py CA_Monument_merge_crop_coh_input_des.txt_**
+  3) Use a text editor to make the following changes to the input file to merge and crop the coherence images (e.g. _CA_Monument_FIREDpy_coh_change_input_des.txt_)
       - _coh_file_loc_: full path to the merged/cropped images above. 
       - _out_dir_: full path for coh change output files. 
       - _tif_suffix_: suffix for the input files (e.g. 'coherence_VV.tif').
       - _ref_image_: reference image for the normalization process. If not specified, the program will auto-select.
-     4) Excecute the Coh Change script: **_python3 FIREDpy_SAR_coh_change_rev05.py CA_Monument_FIREDpy_coh_change_input_des.txt_**
+  4) Excecute the Coh Change script: **_python3 FIREDpy_SAR_coh_change_rev05.py CA_Monument_FIREDpy_coh_change_input_des.txt_**
         
 The figure below illustrates the individual steps outlined above. 
 
